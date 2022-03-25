@@ -5,3 +5,7 @@ main{
 .nav-links{
   margin-left: auto;
 }
+
+.product-name{
+  text-decoration: none;
+}

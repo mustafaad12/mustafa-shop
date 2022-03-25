@@ -9,8 +9,8 @@ const HomeScreen = () => {
       <Row>
           <h1>latest products</h1>
           {
-              Products.map(product => (
-                <Col sm={12} md={6} lg={4} xl={3}>
+              Products.map((product) => (
+                <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                     <Product product={product} />
                 </Col>
               ))
@@ -21,4 +21,3 @@ const HomeScreen = () => {
 }
 
 export default HomeScreen
-
