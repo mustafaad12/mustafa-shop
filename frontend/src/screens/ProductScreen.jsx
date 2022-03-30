@@ -13,6 +13,7 @@ const ProductScreen = () => {
 
   useEffect(()=>{
     const fetchProduct = async ()=>{
+      //destructe data from response
       const {data} = await axios.get(`/api/products/${id}`)
       srtProduct(data)
     }
@@ -36,7 +37,7 @@ const ProductScreen = () => {
           </ListGroup.Item>
 
           <ListGroup.Item>
-           <Rating value={product.rating} text={product.numReviews + " reviews"}/>
+           <Rating value={product.rating} text={product.numOfReviews + " reviews"}/>
           </ListGroup.Item>
 
           <ListGroup.Item>
