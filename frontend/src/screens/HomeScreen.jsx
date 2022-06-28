@@ -2,7 +2,10 @@ import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from "react-redux"
 import {Row, Col} from "react-bootstrap"
 import Product from "../components/Product"
+//spiner
 import Loader from "../components/Loader"
+// allert message
+import Message from "../components/Message"
 // list products action
 import {listProducts} from "../actions/productActions"
 
@@ -22,7 +25,7 @@ const HomeScreen = () => {
     <>
     {
       loading ? <Loader />
-      : error ? <h3>{error}</h3>
+      : error ? <Message variant='danger'>{error}</Message>
       : <Row>
       <h1>latest products</h1>
       {
@@ -34,7 +37,7 @@ const HomeScreen = () => {
       }
   </Row>
     }
-      
+
     </>
   )
 }
