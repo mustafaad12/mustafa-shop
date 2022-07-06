@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import {Link, useParams} from "react-router-dom"
+import { useDispatch, useSelector} from 'react-redux'
+import {Link, useParams, useNavigate} from "react-router-dom"
 import { Row, Col, Image, ListGroup, Card, Button, Form} from "react-bootstrap"
 import Rating from "../components/Rating"
 //spiner
@@ -24,7 +24,13 @@ const ProductScreen = () => {
     dispatch(listProductDetails(id))
   },[dispatch,id])
 
-  const [qty, setQty] = useState(0)
+  const [qty, setQty] = useState(1)
+
+  let navigate = useNavigate()
+
+  const addToCardHandler = () => {
+    navigate(`/cart/${id}?qty=${qty}`)
+  }
 
   return (
     <>
@@ -104,7 +110,7 @@ const ProductScreen = () => {
 
             <ListGroup.Item>
             <div className="d-grid gap-2">
-              <Button className='btn-block'  type="button" disabled={product.countInStock === 0}>
+              <Button onClick={addToCardHandler} className='btn-block'  type="button" disabled={product.countInStock === 0}>
                 Add to Card
               </Button>
             </div>
